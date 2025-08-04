@@ -15,6 +15,7 @@ export const useField = (type) => {
   }
 }
 
+
 export const useCountry = (name) => {
   const [country, setCountry] = useState(null)
   const baseUrl = "https://studies.cs.helsinki.fi/restcountries/api/name/"
@@ -23,9 +24,6 @@ export const useCountry = (name) => {
     const countryInfos = await axios
                           .get(`${baseUrl}${name}`)
                           .catch(error => ({'status': error.status}))
-    
-    // countryInfos.status === 200 && console.log('successful fetch')
-    // countryInfos.status === 200 && console.log(countryInfos.data)
     
     countryInfos.status === 200
     ? setCountry({
